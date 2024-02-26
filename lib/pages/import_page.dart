@@ -32,7 +32,15 @@ class ImportPage extends StatelessWidget {
                     onPressed: () {
                       _getController.exportData();
                     },
-                    child: Text('Export to file', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+                    //child: Text('Export to file', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Export to file', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+                        SizedBox(width: _getController.width * 0.02),
+                        Icon(Icons.file_download, color: Theme.of(context).colorScheme.onBackground),
+                      ],
+                    ),
                   ),
                 ),
               SizedBox(height: _getController.height * 0.02),

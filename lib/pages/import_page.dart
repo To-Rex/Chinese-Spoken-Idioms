@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,12 +54,10 @@ class ImportPage extends StatelessWidget {
                           type: FileType.custom,
                           allowedExtensions: ['json'],
                         );
-
                         if (result != null) {
                           String? filePath = result.files.single.path;
                           if (filePath != null) {
-                            // Set the file path to your controller
-                            _getController.importController.text = filePath;
+                            _getController.importController.text = File(filePath).readAsStringSync();
                           }
                         }
                       },
@@ -83,6 +83,7 @@ class ImportPage extends StatelessWidget {
                     onPressed: () {
                       _getController.dataModelList.clear();
                       _getController.importController.clear();
+
                     },
                     child: Text('Clear', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
                   ),

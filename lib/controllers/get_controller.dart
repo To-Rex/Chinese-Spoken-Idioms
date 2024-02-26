@@ -9,9 +9,7 @@ import 'package:chinese_spoken_idioms/pages/import_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import '../models/data_model.dart';
-import '../pages/sample_page.dart';
 
 class GetController extends GetxController {
   var bottomBarHeight = 0.0.obs;
@@ -90,12 +88,22 @@ class GetController extends GetxController {
     var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Idoms.json');
     var response = await get(url);
     if (response.statusCode == 200) {
-      print('Response status: ${response.statusCode}');
       if (box.read('json').toString().isEmpty||box.read('json').toString() != response.body.toString()){
         saveData(response.body);
       }
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      Get.snackbar(
+        'Error',
+        'Failed to load data',
+        snackStyle: SnackStyle.FLOATING,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Theme.of(Get.context!).colorScheme.error,
+        colorText: Theme.of(Get.context!).colorScheme.onError,
+        icon: Icon(Icons.error, color: Theme.of(Get.context!).colorScheme.onError),
+        titleText: Text('Error', style: TextStyle(color: Theme.of(Get.context!).colorScheme.onError)),
+        margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+        padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+      );
     }
   }
 

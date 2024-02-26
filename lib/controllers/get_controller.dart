@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:chinese_spoken_idioms/pages/home_page.dart';
+import 'package:chinese_spoken_idioms/pages/import_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -10,12 +12,24 @@ import '../models/data_model.dart';
 import '../pages/sample_page.dart';
 
 class GetController extends GetxController {
+  var bottomBarHeight = 0.0.obs;
   var height = 0.0.obs;
   var width = 0.0.obs;
   var fullName = 'Dilshodjon Haydarov'.obs;
   var index = 0.obs;
   var isLoading = false.obs;
   var fileUrl = ''.obs;
+  var widgetOptions = <Widget>[];
+
+  void changeWidgetOptions() {
+    bottomBarHeight.value = height.value * 0.08;
+    widgetOptions.add(HomePage());
+    widgetOptions.add(ImportPage());
+
+    /*widgetOptions.add(LibraryPage());
+    widgetOptions.add(BasketPage());
+    widgetOptions.add(AccountPage());*/
+  }
 
   void changeIndex(int i) {
     index.value = i;
@@ -73,11 +87,6 @@ class GetController extends GetxController {
 
   //add collection save getstore _getController.dataModelList[index].id
   void addCollection(int id) {
-    /*GetStorage box = GetStorage();
-    List<int> collection = box.read('collection') ?? [];
-    collection.add(id);
-    box.write('collection', collection);*/
-    //if collection id not exist add else remove
     GetStorage box = GetStorage();
     List<int> collection = box.read('collection') ?? [];
     if (collection.contains(id)) {

@@ -64,7 +64,15 @@ class SamplePage extends StatelessWidget {
                 leading: Text(_getController.dataModelList[index].character.toString()),
                 title: Text(_getController.dataModelList[index].character2.toString()),
                 subtitle: Text(_getController.dataModelList[index].pinyin.toString()),
-                trailing: Text(_getController.dataModelList[index].id.toString()),
+                //trailing: Text(_getController.dataModelList[index].id.toString()),
+                trailing: IconButton(
+                  icon: Icon(
+                      Icons.bookmark,
+                      color: _getController.checkCollection(int.parse(_getController.dataModelList[index].id.toString())) ? Theme.of(context).colorScheme.error : Theme.of(context).colorScheme.onBackground),
+                  onPressed: () {
+                    _getController.addCollection(int.parse(_getController.dataModelList[index].id.toString()));
+                  },
+                ),
               );
             },
           );

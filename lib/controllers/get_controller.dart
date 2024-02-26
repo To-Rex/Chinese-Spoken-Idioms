@@ -70,4 +70,29 @@ class GetController extends GetxController {
     setDataModelList(result);
     return result;
   }
+
+  //add collection save getstore _getController.dataModelList[index].id
+  void addCollection(int id) {
+    /*GetStorage box = GetStorage();
+    List<int> collection = box.read('collection') ?? [];
+    collection.add(id);
+    box.write('collection', collection);*/
+    //if collection id not exist add else remove
+    GetStorage box = GetStorage();
+    List<int> collection = box.read('collection') ?? [];
+    if (collection.contains(id)) {
+      collection.remove(id);
+      getData();
+    } else {
+      collection.add(id);
+      getData();
+    }
+  }
+
+  //check collection id
+  bool checkCollection(int id) {
+    GetStorage box = GetStorage();
+    List<int> collection = box.read('collection') ?? [];
+    return collection.contains(id);
+  }
 }

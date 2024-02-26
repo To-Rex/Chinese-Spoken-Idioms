@@ -128,7 +128,7 @@ class SamplePage extends StatelessWidget {
               leading: Icon(Icons.info, color: Theme.of(context).colorScheme.onBackground),
               title: Text('Info', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
-                Get.back();
+                _getController.index.value = 3;
               },
             ),
           ],

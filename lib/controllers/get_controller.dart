@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:chinese_spoken_idioms/pages/info_page.dart';
 import 'package:http/http.dart';
 import 'package:chinese_spoken_idioms/pages/collection_page.dart';
 import 'package:chinese_spoken_idioms/pages/home_page.dart';
@@ -26,6 +27,7 @@ class GetController extends GetxController {
     widgetOptions.add(HomePage());
     widgetOptions.add(ImportPage());
     widgetOptions.add(CollectionPage());
+    widgetOptions.add(InfoPage());
   }
 
   void changeIndex(int i) {

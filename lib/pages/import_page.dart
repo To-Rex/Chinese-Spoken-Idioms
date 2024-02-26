@@ -28,6 +28,23 @@ class ImportPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: _getController.height * 0.02),
+              if(_getController.dataModelList.isNotEmpty)
+                SizedBox(
+                  height: _getController.height * 0.06,
+                  width: _getController.width * 0.95,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.onSecondary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onPressed: () {
+                    },
+                    child: Text('Export to file', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+                  ),
+                ),
+              SizedBox(height: _getController.height * 0.02),
               Container(
                 width: _getController.width * 0.95,
                 padding: EdgeInsets.only(left: _getController.width * 0.03),
@@ -83,7 +100,6 @@ class ImportPage extends StatelessWidget {
                     onPressed: () {
                       _getController.dataModelList.clear();
                       _getController.importController.clear();
-
                     },
                     child: Text('Clear', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
                   ),

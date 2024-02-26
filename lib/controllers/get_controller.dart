@@ -120,10 +120,34 @@ class GetController extends GetxController {
       collection.remove(id);
       box.write('collection', collection);
       getData();
+      Get.snackbar(
+        'Info',
+        'Removed from collection',
+        snackStyle: SnackStyle.FLOATING,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green.shade300,
+        colorText: Theme.of(Get.context!).colorScheme.background,
+        icon: Icon(Icons.add_circle, color: Theme.of(Get.context!).colorScheme.background),
+        titleText: Text('Info', style: TextStyle(color: Theme.of(Get.context!).colorScheme.background)),
+        margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+        padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+      );
     } else {
       collection.add(id);
       box.write('collection', collection);
       getData();
+      Get.snackbar(
+        'Info',
+        'Added to collection',
+        snackStyle: SnackStyle.FLOATING,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red.shade300,
+        colorText: Theme.of(Get.context!).colorScheme.background,
+        icon: Icon(Icons.delete, color: Theme.of(Get.context!).colorScheme.background),
+        titleText: Text('Info', style: TextStyle(color: Theme.of(Get.context!).colorScheme.background)),
+        margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+        padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+      );
     }
   }
 

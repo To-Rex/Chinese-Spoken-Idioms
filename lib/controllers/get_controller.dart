@@ -26,10 +26,6 @@ class GetController extends GetxController {
     widgetOptions.add(HomePage());
     widgetOptions.add(ImportPage());
     widgetOptions.add(CollectionPage());
-
-    /*widgetOptions.add(LibraryPage());
-    widgetOptions.add(BasketPage());
-    widgetOptions.add(AccountPage());*/
   }
 
   void changeIndex(int i) {
@@ -74,14 +70,12 @@ class GetController extends GetxController {
     getData();
   }
 
-  //clear data
   void clearData() {
     GetStorage box = GetStorage();
     box.remove('json');
     box.remove('collection');
     getData();
   }
-
 
   Future<void> getDataFromInternet() async {
     GetStorage box = GetStorage();
@@ -118,12 +112,9 @@ class GetController extends GetxController {
     return result;
   }
 
-  //add collection save getstore _getController.dataModelList[index].id
   void addCollection(int id) {
     GetStorage box = GetStorage();
     List<int> collection = List<int>.from(box.read('collection') ?? []);
-    print(id);
-    print(collection);
     if (collection.contains(id)) {
       collection.remove(id);
       box.write('collection', collection);
@@ -159,7 +150,6 @@ class GetController extends GetxController {
     }
   }
 
-  //check collection id
   bool checkCollection(int id) {
     GetStorage box = GetStorage();
     //List<int> collection = box.read('collection') ?? [];

@@ -52,6 +52,8 @@ class GetController extends GetxController {
   void saveData(String text) {
     GetStorage box = GetStorage();
     box.write('json', text);
+    //get data from storage
+    getData();
   }
 
   //search data by character, return List<DataModel> with character contains search string

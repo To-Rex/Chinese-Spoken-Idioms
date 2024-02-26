@@ -110,8 +110,6 @@ class SamplePage extends StatelessWidget {
               title: Text('Created',
                   style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
-                /*Get.back();
-                Get.to(() => ImportPage());*/
                 _getController.index.value = 1;
               },
             ),
@@ -119,7 +117,6 @@ class SamplePage extends StatelessWidget {
               leading: Icon(Icons.collections_bookmark, color: Theme.of(context).colorScheme.onBackground),
               title: Text('Reminder', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
-                //Get.back();
                 _getController.index.value = 2;
               },
             ),

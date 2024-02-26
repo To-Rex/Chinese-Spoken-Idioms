@@ -99,7 +99,7 @@ class GetController extends GetxController {
   //add collection save getstore _getController.dataModelList[index].id
   void addCollection(int id) {
     GetStorage box = GetStorage();
-    List<int> collection = box.read('collection') ?? [];
+    List<int> collection = List<int>.from(box.read('collection') ?? []);
     print(id);
     print(collection);
     if (collection.contains(id)) {
@@ -116,7 +116,8 @@ class GetController extends GetxController {
   //check collection id
   bool checkCollection(int id) {
     GetStorage box = GetStorage();
-    List<int> collection = box.read('collection') ?? [];
+    //List<int> collection = box.read('collection') ?? [];
+    List<int> collection = List<int>.from(box.read('collection') ?? []);
     return collection.contains(id);
   }
 

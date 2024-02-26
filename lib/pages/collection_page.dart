@@ -19,38 +19,48 @@ class CollectionPage extends StatelessWidget {
                 style: TextStyle(fontSize: _getController.width * 0.04)),
           );
         } else {
+          //get all collection data from dataModelList
+          List collectionList = [];
+          for (var i = 0; i < _getController.dataModelList.length; i++) {
+            if (_getController.checkCollection(
+                int.parse(_getController.dataModelList[i].id.toString()))) {
+              collectionList.add(_getController.dataModelList[i]);
+            }
+          }
+          if (collectionList.isEmpty) {
+            return Center(
+              child: Text('No collection',
+                  style: TextStyle(fontSize: _getController.width * 0.04)),
+            );
+          }
           return ListView.builder(
-            itemCount: _getController.dataModelList.length,
+            itemCount: collectionList.length,
             itemBuilder: (context, index) {
-              if(_getController.checkCollection(int.parse(_getController.dataModelList[index].id.toString()))){
-                return ListTile(
-                  onTap: () {
-                    Get.to(() => DetailPage(
-                      id: _getController.dataModelList[index].id,
-                      character: _getController.dataModelList[index].character,
-                      character2: _getController.dataModelList[index].character2,
-                      pinyin: _getController.dataModelList[index].pinyin,
-                      comment: _getController.dataModelList[index].comment,
-                      reminder: _getController.dataModelList[index].reminder,
-                      examples: _getController.dataModelList[index].examples,
-                    ),
-                    );
-                  },
-                  leading: Text(_getController.dataModelList[index].character.toString()),
-                  title: Text(_getController.dataModelList[index].character2.toString()),
-                  subtitle: Text(_getController.dataModelList[index].pinyin.toString()),
-                  //trailing: Text(_getController.dataModelList[index].id.toString()),
-                  trailing: IconButton(
-                    icon: Icon(
-                        Icons.bookmark,
-                        color: _getController.checkCollection(int.parse(_getController.dataModelList[index].id.toString())) ? Theme.of(context).colorScheme.error : Theme.of(context).colorScheme.onBackground),
-                    onPressed: () {
-                      _getController.addCollection(int.parse(_getController.dataModelList[index].id.toString()));
-                    },
+              return ListTile(
+                onTap: () {
+                  Get.to(() => DetailPage(
+                    id: collectionList[index].id,
+                    character: collectionList[index].character,
+                    character2: collectionList[index].character2,
+                    pinyin: collectionList[index].pinyin,
+                    comment: collectionList[index].comment,
+                    reminder: collectionList[index].reminder,
+                    examples: collectionList[index].examples,
                   ),
-                );
-              }
-
+                  );
+                },
+                leading: Text(collectionList[index].character.toString()),
+                title: Text(collectionList[index].character2.toString()),
+                subtitle: Text(collectionList[index].pinyin.toString()),
+                trailing: IconButton(
+                  icon: Icon(
+                      Icons.bookmark,
+                      color: Theme.of(context).colorScheme.error),
+                  onPressed: () {
+                    _getController.addCollection(int.parse(collectionList[index].id.toString()));
+                  },
+                ),
+              );
             },
           );
         }

@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                 trailing: IconButton(
                   icon: Icon(
                       Icons.bookmark,
-                      color: _getController.checkCollection(int.parse(_getController.dataModelList[index].id.toString())) ? Theme.of(context).colorScheme.error : Theme.of(context).colorScheme.onBackground),
+                      color: _getController.checkCollection(_getController.dataModelList[index].id!.toInt()) ? Theme.of(context).colorScheme.error : Theme.of(context).colorScheme.onBackground),
                   onPressed: () {
                     _getController.addCollection(int.parse(_getController.dataModelList[index].id.toString()));
                   },

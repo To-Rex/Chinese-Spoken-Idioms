@@ -47,7 +47,7 @@ class ImportPage extends StatelessWidget {
                     suffixIcon: IconButton(
                       icon: Icon(Icons.file_upload, color: Theme.of(context).colorScheme.surface),
                       onPressed: () {
-                        //get file json file text
+                        //get file manager to select json file
 
                       },
                     ),

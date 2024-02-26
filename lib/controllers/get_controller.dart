@@ -60,7 +60,6 @@ class GetController extends GetxController {
     getData();
   }
 
-  //search data by character, return List<DataModel> with character contains search string
   List<DataModel> searchByCharacter(String search) {
     List<DataModel> result = getData()
         .where((element) =>

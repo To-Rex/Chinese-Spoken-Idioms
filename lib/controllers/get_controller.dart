@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
-
+import 'package:http/http.dart';
 import 'package:chinese_spoken_idioms/pages/collection_page.dart';
 import 'package:chinese_spoken_idioms/pages/home_page.dart';
 import 'package:chinese_spoken_idioms/pages/import_page.dart';
@@ -60,7 +60,6 @@ class GetController extends GetxController {
   List<DataModel> getData() {
     GetStorage box = GetStorage();
     String text = box.read('json') ?? '';
-    print(text);
     if (text.isEmpty) {
       return List<DataModel>.empty();
     } else {
@@ -83,6 +82,21 @@ class GetController extends GetxController {
     box.remove('json');
     box.remove('collection');
     getData();
+  }
+
+
+  Future<void> getDataFromInternet() async {
+    GetStorage box = GetStorage();
+    var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Idoms.json');
+    var response = await get(url);
+    if (response.statusCode == 200) {
+      print('Response status: ${response.statusCode}');
+      if (box.read('json').toString().isEmpty||box.read('json').toString() != response.body.toString()){
+        saveData(response.body);
+      }
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
+    }
   }
 
   List<DataModel> searchByCharacter(String search) {

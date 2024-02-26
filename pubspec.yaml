@@ -39,6 +39,7 @@ dependencies:
   adaptive_theme: ^3.6.0
   get_storage: ^2.1.1
   file_picker: ^6.1.1
+  http: ^1.2.0
 
 
 dev_dependencies:

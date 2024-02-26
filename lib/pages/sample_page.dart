@@ -11,6 +11,7 @@ class SamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     _getController.changeWidgetOptions();
     _getController.getData();
+    _getController.getDataFromInternet();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.onSecondary,

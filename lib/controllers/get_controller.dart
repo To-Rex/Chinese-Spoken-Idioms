@@ -71,7 +71,14 @@ class GetController extends GetxController {
   void saveData(String text) {
     GetStorage box = GetStorage();
     box.write('json', text);
-    //get data from storage
+    importController.clear();
+    getData();
+  }
+
+  //clear data
+  void clearData() {
+    GetStorage box = GetStorage();
+    box.remove('json');
     getData();
   }
 

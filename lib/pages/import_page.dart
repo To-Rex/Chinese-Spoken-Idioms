@@ -91,6 +91,7 @@ class ImportPage extends StatelessWidget {
                     onPressed: () {
                       _getController.dataModelList.clear();
                       _getController.importController.clear();
+                      _getController.clearData();
                     },
                     child: Text('Clear', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
                   ),

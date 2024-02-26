@@ -81,6 +81,7 @@ class GetController extends GetxController {
   void clearData() {
     GetStorage box = GetStorage();
     box.remove('json');
+    box.remove('collection');
     getData();
   }
 
@@ -99,11 +100,15 @@ class GetController extends GetxController {
   void addCollection(int id) {
     GetStorage box = GetStorage();
     List<int> collection = box.read('collection') ?? [];
+    print(id);
+    print(collection);
     if (collection.contains(id)) {
       collection.remove(id);
+      box.write('collection', collection);
       getData();
     } else {
       collection.add(id);
+      box.write('collection', collection);
       getData();
     }
   }

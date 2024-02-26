@@ -28,31 +28,21 @@ class DetailPage extends StatelessWidget {
         ),
         title: Text('Detail Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
       ),
-      body: Center(
-        child: Obx(() {
-          if (_getController.dataModelList.isEmpty) {
-            return Center(
-              child: Text('No data', style: TextStyle(fontSize: _getController.width * 0.04)),
-            );
-          } else {
-            return ListView.builder(
-              itemCount: _getController.dataModelList.length,
-              itemBuilder: (context, index) {
-                if (_getController.dataModelList[index].id == id) {
-                  return ListTile(
-                    leading: Text(_getController.dataModelList[index].character.toString()),
-                    title: Text(_getController.dataModelList[index].character2.toString()),
-                    subtitle: Text(_getController.dataModelList[index].pinyin.toString()),
-                    trailing: Text(_getController.dataModelList[index].id.toString()),
-                  );
-                } else {
-                  return Container();
-                }
-              },
-            );
-          }
-        }),
-      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('ID: $id', style: TextStyle(fontSize: _getController.width * 0.05)),
+            Text('Character: $character', style: TextStyle(fontSize: _getController.width * 0.05)),
+            Text('Character2: $character2', style: TextStyle(fontSize: _getController.width * 0.05)),
+            Text('Pinyin: $pinyin', style: TextStyle(fontSize: _getController.width * 0.05)),
+            Text('Comment: $comment', style: TextStyle(fontSize: _getController.width * 0.05)),
+            Text('Reminder: $reminder', style: TextStyle(fontSize: _getController.width * 0.05)),
+            Text('Examples: $examples', style: TextStyle(fontSize: _getController.width * 0.05)),
+          ],
+        ),
+      )
     );
   }
 }

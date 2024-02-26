@@ -1,3 +1,4 @@
+import 'package:chinese_spoken_idioms/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,7 @@ import 'import_page.dart';
 
 class SamplePage extends StatelessWidget {
   SamplePage({super.key});
+
   final GetController _getController = Get.put(GetController());
 
   @override
@@ -30,7 +32,8 @@ class SamplePage extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Search',
               border: InputBorder.none,
-              suffixIcon: Icon(Icons.search, color: Theme.of(context).colorScheme.primary),
+              suffixIcon: Icon(Icons.search,
+                  color: Theme.of(context).colorScheme.primary),
             ),
           ),
         ),
@@ -39,13 +42,26 @@ class SamplePage extends StatelessWidget {
         child: Obx(() {
           if (_getController.dataModelList.isEmpty) {
             return Center(
-              child: Text('No data', style: TextStyle(fontSize: _getController.width * 0.04)),
+              child: Text('No data',
+                  style: TextStyle(fontSize: _getController.width * 0.04)),
             );
           } else {
             return ListView.builder(
               itemCount: _getController.dataModelList.length,
               itemBuilder: (context, index) {
                 return ListTile(
+                  onTap: () {
+                    Get.to(() => DetailPage(
+                        id: _getController.dataModelList[index].id,
+                        character: _getController.dataModelList[index].character,
+                        character2: _getController.dataModelList[index].character2,
+                        pinyin: _getController.dataModelList[index].pinyin,
+                        comment: _getController.dataModelList[index].comment,
+                        reminder: _getController.dataModelList[index].reminder,
+                        examples: _getController.dataModelList[index].examples,
+                      ),
+                    );
+                  },
                   leading: Text(_getController.dataModelList[index].character.toString()),
                   title: Text(_getController.dataModelList[index].character2.toString()),
                   subtitle: Text(_getController.dataModelList[index].pinyin.toString()),
@@ -111,30 +127,38 @@ class SamplePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.book, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Dictionary', style: TextStyle(fontSize: _getController.width * 0.04)),
+              leading: Icon(Icons.book,
+                  color: Theme.of(context).colorScheme.onBackground),
+              title: Text('Dictionary',
+                  style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 Get.back();
               },
             ),
             ListTile(
-              leading: Icon(Icons.computer, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Created', style: TextStyle(fontSize: _getController.width * 0.04)),
+              leading: Icon(Icons.computer,
+                  color: Theme.of(context).colorScheme.onBackground),
+              title: Text('Created',
+                  style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 Get.back();
                 Get.to(() => ImportPage());
               },
             ),
             ListTile(
-              leading: Icon(Icons.collections_bookmark, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Reminder', style: TextStyle(fontSize: _getController.width * 0.04)),
+              leading: Icon(Icons.collections_bookmark,
+                  color: Theme.of(context).colorScheme.onBackground),
+              title: Text('Reminder',
+                  style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 Get.back();
               },
             ),
             ListTile(
-              leading: Icon(Icons.info, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Info', style: TextStyle(fontSize: _getController.width * 0.04)),
+              leading: Icon(Icons.info,
+                  color: Theme.of(context).colorScheme.onBackground),
+              title: Text('Info',
+                  style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 Get.back();
               },

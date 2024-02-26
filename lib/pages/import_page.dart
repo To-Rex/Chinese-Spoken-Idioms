@@ -7,6 +7,7 @@ import '../controllers/get_controller.dart';
 
 class ImportPage extends StatelessWidget {
   ImportPage({super.key});
+
   final GetController _getController = Get.put(GetController());
 
   @override

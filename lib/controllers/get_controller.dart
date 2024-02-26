@@ -16,7 +16,7 @@ class GetController extends GetxController {
   var bottomBarHeight = 0.0.obs;
   var height = 0.0.obs;
   var width = 0.0.obs;
-  var fullName = 'Dilshodjon Haydarov'.obs;
+  var fullName = 'Hello World'.obs;
   var index = 0.obs;
   var isLoading = false.obs;
   var fileUrl = ''.obs;
@@ -182,4 +182,5 @@ class GetController extends GetxController {
     file.writeAsStringSync(text);
     fileUrl.value = file.path;
   }
+
 }

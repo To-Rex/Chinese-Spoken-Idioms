@@ -13,9 +13,13 @@ class GetController extends GetxController {
   var height = 0.0.obs;
   var width = 0.0.obs;
   var fullName = 'Dilshodjon Haydarov'.obs;
-
+  var index = 0.obs;
   var isLoading = false.obs;
   var fileUrl = ''.obs;
+
+  void changeIndex(int i) {
+    index.value = i;
+  }
 
   void setHeightWidth(BuildContext context) {
     height.value = MediaQuery.of(context).size.height;

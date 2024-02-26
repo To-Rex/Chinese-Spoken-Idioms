@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:chinese_spoken_idioms/pages/collection_page.dart';
 import 'package:chinese_spoken_idioms/pages/home_page.dart';
 import 'package:chinese_spoken_idioms/pages/import_page.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class GetController extends GetxController {
     bottomBarHeight.value = height.value * 0.08;
     widgetOptions.add(HomePage());
     widgetOptions.add(ImportPage());
+    widgetOptions.add(CollectionPage());
 
     /*widgetOptions.add(LibraryPage());
     widgetOptions.add(BasketPage());

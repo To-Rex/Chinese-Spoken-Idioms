@@ -104,4 +104,58 @@ class GetController extends GetxController {
     List<int> collection = box.read('collection') ?? [];
     return collection.contains(id);
   }
+
+  void exportData() {
+    GetStorage box = GetStorage();
+    String text = box.read('json') ?? '';
+    if (text.isEmpty) {
+      Get.snackbar(
+        'Error',
+        'No data to export',
+        snackStyle: SnackStyle.FLOATING,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Get.theme.errorColor,
+        colorText: Get.theme.errorColor,
+        icon: Icon(Icons.error, color: Get.theme.errorColor),
+        titleText: Text('Error', style: TextStyle(color: Get.theme.errorColor)),
+        margin: EdgeInsets.symmetric(horizontal: width.value * 0.03, vertical: height.value * 0.02),
+        padding: EdgeInsets.symmetric(horizontal: width.value * 0.03, vertical: height.value * 0.02),
+      );
+      return;
+    }
+    Get.dialog(
+      AlertDialog(
+        title: Text('Export Data'),
+        content: Text('Do you want to export data?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: Text('Cancel', style: TextStyle(color: Get.theme.errorColor)),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.back();
+              Get.dialog(
+                AlertDialog(
+                  title: Text('Export Data'),
+                  content: Text('Data has been exported successfully'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text('OK', style: TextStyle(color: Get.theme.errorColor)),
+                    ),
+                  ],
+                ),
+              );
+            },
+            child: Text('OK', style: TextStyle(color: Get.theme.errorColor)),
+          ),
+        ],
+      ),
+    );
+  }
 }

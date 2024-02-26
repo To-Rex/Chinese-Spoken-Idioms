@@ -14,7 +14,8 @@ class SamplePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.onSecondary,
-        title: Container(
+        title: Obx(() => _getController.index.value == 0
+            ? Container(
           padding: EdgeInsets.only(left: _getController.width * 0.03),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.background,
@@ -34,7 +35,10 @@ class SamplePage extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary),
             ),
           ),
-        ),
+        )
+            : Text('Import Page',
+            style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
+        )
       ),
       body: Obx(() => _getController.widgetOptions.elementAt(_getController.index.value)),
       drawer: Drawer(

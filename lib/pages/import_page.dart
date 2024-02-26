@@ -12,16 +12,6 @@ class ImportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.onSecondary,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Get.back();
-          },
-        ),
-        title: Text('Import Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
-      ),
       body: Obx(() =>
           Center(
           child: Column(
@@ -40,6 +30,7 @@ class ImportPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      _getController.exportData();
                     },
                     child: Text('Export to file', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
                   ),

@@ -1,9 +1,6 @@
-import 'package:chinese_spoken_idioms/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controllers/get_controller.dart';
-import 'import_page.dart';
 
 class SamplePage extends StatelessWidget {
   SamplePage({super.key});

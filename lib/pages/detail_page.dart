@@ -36,7 +36,7 @@ class DetailPage extends StatelessWidget {
             SizedBox(height: _getController.height * 0.05, width: _getController.width * 1),
             Text(character,
                 style: TextStyle(
-                    fontSize: _getController.width * 0.1,
+                    fontSize: _getController.width * 0.13,
                   color: Theme.of(context).colorScheme.onSurface,
                   fontWeight: FontWeight.w900,
                 )
@@ -67,7 +67,7 @@ class DetailPage extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSecondary,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Text('Comment: $comment', style: TextStyle(fontSize: _getController.width * 0.05)),
+              child: Text('Comment: $comment', style: TextStyle(fontSize: _getController.width * 0.045)),
             ),
             Container(
               width: _getController.width * 0.9,
@@ -77,7 +77,7 @@ class DetailPage extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSecondary,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Text('Reminder: $reminder', style: TextStyle(fontSize: _getController.width * 0.05))
+              child: Text('Reminder: $reminder', style: TextStyle(fontSize: _getController.width * 0.045))
             ),
             Container(
               width: _getController.width * 0.9,
@@ -87,7 +87,7 @@ class DetailPage extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSecondary,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Text('Examples: $examples', style: TextStyle(fontSize: _getController.width * 0.05))
+              child: Text('Examples: $examples', style: TextStyle(fontSize: _getController.width * 0.045))
             ),
           ],
         ),

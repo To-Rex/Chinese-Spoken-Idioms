@@ -3,16 +3,22 @@ import 'package:get/get.dart';
 import '../controllers/get_controller.dart';
 
 class InfoPage extends StatelessWidget {
-  const InfoPage({super.key});
+  InfoPage({super.key});
+
+  final GetController _getController = Get.put(GetController());
 
   @override
   Widget build(BuildContext context) {
-    final GetController _getController = Get.put(GetController());
-    return  Scaffold(
-      body: Center(
-        child: Text(_getController.fullName.value,
-          style: TextStyle(fontSize: _getController.width * 0.05),
-        )
+    return Scaffold(
+      body: Obx(() =>
+          Center(
+            child: Text(_getController.fullName.value,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontSize: _getController.width * 0.04,
+                )
+            ),
+          ),
       ),
     );
   }

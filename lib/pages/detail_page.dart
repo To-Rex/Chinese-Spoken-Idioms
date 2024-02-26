@@ -31,15 +31,64 @@ class DetailPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('ID: $id', style: TextStyle(fontSize: _getController.width * 0.05)),
-            Text('Character: $character', style: TextStyle(fontSize: _getController.width * 0.05)),
-            Text('Character2: $character2', style: TextStyle(fontSize: _getController.width * 0.05)),
-            Text('Pinyin: $pinyin', style: TextStyle(fontSize: _getController.width * 0.05)),
-            Text('Comment: $comment', style: TextStyle(fontSize: _getController.width * 0.05)),
-            Text('Reminder: $reminder', style: TextStyle(fontSize: _getController.width * 0.05)),
-            Text('Examples: $examples', style: TextStyle(fontSize: _getController.width * 0.05)),
+            SizedBox(height: _getController.height * 0.05, width: _getController.width * 1),
+            Text(character,
+                style: TextStyle(
+                    fontSize: _getController.width * 0.1,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.w900,
+                )
+            ),
+            Container(
+              width: _getController.width * 0.3,
+              height: 2,
+              padding: EdgeInsets.only(left: _getController.width * 0.05),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.onBackground,
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            SizedBox(height: _getController.height * 0.02),
+            Text(character2,
+                style: TextStyle(
+                    fontSize: _getController.width * 0.05,
+                  color: Colors.green,
+                  fontWeight: FontWeight.w900,
+                )
+            ),
+            Text(pinyin, style: TextStyle(fontSize: _getController.width * 0.05)),
+            SizedBox(height: _getController.height * 0.05),
+            Container(
+              width: _getController.width * 0.9,
+              padding: EdgeInsets.all(_getController.width * 0.03),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.onSecondary,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text('Comment: $comment', style: TextStyle(fontSize: _getController.width * 0.05)),
+            ),
+            Container(
+              width: _getController.width * 0.9,
+              margin: EdgeInsets.only(top: _getController.height * 0.03),
+              padding: EdgeInsets.all(_getController.width * 0.03),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.onSecondary,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text('Reminder: $reminder', style: TextStyle(fontSize: _getController.width * 0.05))
+            ),
+            Container(
+              width: _getController.width * 0.9,
+              margin: EdgeInsets.only(top: _getController.height * 0.03,bottom: _getController.height * 0.03),
+              padding: EdgeInsets.all(_getController.width * 0.03),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.onSecondary,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text('Examples: $examples', style: TextStyle(fontSize: _getController.width * 0.05))
+            ),
           ],
         ),
       )

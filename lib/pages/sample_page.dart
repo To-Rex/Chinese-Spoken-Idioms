@@ -47,7 +47,6 @@ class SamplePage extends StatelessWidget {
       ),
       body: Obx(() => _getController.widgetOptions.elementAt(_getController.index.value)),
       drawer: Drawer(
-        //logo and name
         child: Column(
           children: [
             Container(

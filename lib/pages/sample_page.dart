@@ -40,8 +40,9 @@ class SamplePage extends StatelessWidget {
             : _getController.index.value == 1
             ? Text('Import Page',
             style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
-            : Text('Collection Page',
-            style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
+            : _getController.index.value == 2
+            ?Text('Collection Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
+            : Text('Info Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
         )
       ),
       body: Obx(() => _getController.widgetOptions.elementAt(_getController.index.value)),

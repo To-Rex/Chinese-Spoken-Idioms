@@ -36,7 +36,10 @@ class SamplePage extends StatelessWidget {
             ),
           ),
         )
-            : Text('Import Page',
+            : _getController.index.value == 1
+            ? Text('Import Page',
+            style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
+            : Text('Collection Page',
             style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
         )
       ),

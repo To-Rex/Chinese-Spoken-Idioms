@@ -117,8 +117,8 @@ class SamplePage extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.collections_bookmark, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Reminder', style: TextStyle(fontSize: _getController.width * 0.04)),
+              leading: Icon(Icons.bookmark, color: Theme.of(context).colorScheme.onBackground),
+              title: Text('Collection', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 _getController.index.value = 2;
               },

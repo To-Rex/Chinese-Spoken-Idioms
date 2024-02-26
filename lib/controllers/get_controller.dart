@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:chinese_spoken_idioms/pages/home_page.dart';
 import 'package:chinese_spoken_idioms/pages/import_page.dart';
@@ -118,44 +119,14 @@ class GetController extends GetxController {
         colorText: Get.theme.errorColor,
         icon: Icon(Icons.error, color: Get.theme.errorColor),
         titleText: Text('Error', style: TextStyle(color: Get.theme.errorColor)),
-        margin: EdgeInsets.symmetric(horizontal: width.value * 0.03, vertical: height.value * 0.02),
-        padding: EdgeInsets.symmetric(horizontal: width.value * 0.03, vertical: height.value * 0.02),
+        margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+        padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
       );
       return;
     }
-    Get.dialog(
-      AlertDialog(
-        title: Text('Export Data'),
-        content: Text('Do you want to export data?'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Get.back();
-            },
-            child: Text('Cancel', style: TextStyle(color: Get.theme.errorColor)),
-          ),
-          TextButton(
-            onPressed: () {
-              Get.back();
-              Get.dialog(
-                AlertDialog(
-                  title: Text('Export Data'),
-                  content: Text('Data has been exported successfully'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: Text('OK', style: TextStyle(color: Get.theme.errorColor)),
-                    ),
-                  ],
-                ),
-              );
-            },
-            child: Text('OK', style: TextStyle(color: Get.theme.errorColor)),
-          ),
-        ],
-      ),
-    );
+    final String dir = Directory.fromRawPath(Uint8List.fromList('/storage/emulated/0/Download'.codeUnits)).path;
+    final File file = File('$dir/export.json');
+    file.writeAsStringSync(text);
+    fileUrl.value = file.path;
   }
 }

@@ -106,7 +106,9 @@ class GetController extends GetxController {
 
   Future<void> getDataReminderFromInternet() async {
     GetStorage box = GetStorage();
-    var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Eslatma.text');
+    var url = Uri.parse(
+        'https://github.com/To-Rex/Chinese-Spoken-Idioms/blob/master/assets/Eslatma.text'
+    );
     var response = await get(url);
     print('response=============: ${response.body}'); // 'response.statusCode: 200'
     if (response.statusCode == 200) {

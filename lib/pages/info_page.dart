@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/get_controller.dart';
+import 'package:flutter_text_viewer/flutter_text_viewer.dart';
 
 class InfoPage extends StatelessWidget {
   InfoPage({super.key});
@@ -9,16 +10,16 @@ class InfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Obx(() =>
-          Center(
-            child: Text(_getController.fullName.value,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontSize: _getController.width * 0.04,
-                )
-            ),
-          ),
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: TextViewerPage(
+        textViewer: TextViewer.asset(
+          'assets/info.txt',
+          highLightColor: Colors.yellow,
+          focusColor: Colors.orange,
+          ignoreCase: true,
+        ),
+        showSearchAppBar: false,
       ),
     );
   }

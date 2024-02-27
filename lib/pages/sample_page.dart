@@ -101,33 +101,29 @@ class SamplePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.book,
-                  color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Dictionary',
-                  style: TextStyle(fontSize: _getController.width * 0.04)),
+              leading: Icon(Icons.book, color: Theme.of(context).colorScheme.onBackground),
+              title: Text('Lug\'at', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 _getController.index.value = 0;
               },
             ),
             ListTile(
-              leading: Icon(Icons.computer,
-                  color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Created',
-                  style: TextStyle(fontSize: _getController.width * 0.04)),
+              leading: Icon(Icons.computer, color: Theme.of(context).colorScheme.onBackground),
+              title: Text('Tuzilgan', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 _getController.index.value = 1;
               },
             ),
             ListTile(
               leading: Icon(Icons.bookmark, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Collection', style: TextStyle(fontSize: _getController.width * 0.04)),
+              title: Text('Eslatma', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 _getController.index.value = 2;
               },
             ),
             ListTile(
               leading: Icon(Icons.info, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Info', style: TextStyle(fontSize: _getController.width * 0.04)),
+              title: Text('Ma\'lumot', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 _getController.index.value = 3;
               },

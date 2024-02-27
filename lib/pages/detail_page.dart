@@ -85,7 +85,7 @@ class DetailPage extends StatelessWidget {
               Text(pinyin,
                   style: TextStyle(fontSize: _getController.width * 0.05)),
               SizedBox(height: _getController.height * 0.05),
-              if (comment != null)
+              if (comment != null && comment != '')
                 Container(
                   width: _getController.width * 0.9,
                   padding: EdgeInsets.all(_getController.width * 0.03),
@@ -95,7 +95,7 @@ class DetailPage extends StatelessWidget {
                   ),
                   child: Text('Comment: $comment', style: TextStyle(fontSize: _getController.width * 0.045)),
                 ),
-              if (reminder != null)
+              if (reminder != null && reminder != '')
                 Container(
                     width: _getController.width * 0.9,
                     margin: EdgeInsets.only(top: _getController.height * 0.03),
@@ -103,7 +103,7 @@ class DetailPage extends StatelessWidget {
                     decoration: BoxDecoration(color: Theme.of(context).colorScheme.onSecondary, borderRadius: BorderRadius.circular(10),),
                     child: Text('Reminder: $reminder', style: TextStyle(fontSize: _getController.width * 0.045))
                 ),
-              if (examples != null)
+              if (examples != null && examples != '')
                 Container(
                     width: _getController.width * 0.9,
                     margin: EdgeInsets.only(top: _getController.height * 0.03, bottom: _getController.height * 0.03),

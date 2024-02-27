@@ -12,15 +12,7 @@ class DetailPage extends StatefulWidget {
   var reminder;
   var examples;
 
-  DetailPage(
-      {super.key,
-      required this.id,
-      required this.character,
-      required this.character2,
-      required this.pinyin,
-      required this.comment,
-      required this.reminder,
-      required this.examples});
+  DetailPage({super.key, required this.id, required this.character, required this.character2, required this.pinyin, required this.comment, required this.reminder, required this.examples});
 
   @override
   State<DetailPage> createState() => _DetailPageState();

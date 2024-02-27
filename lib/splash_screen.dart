@@ -21,11 +21,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.blue, Colors.green],
-          ),
+          color: Theme.of(context).colorScheme.background,
         ),
         child: Column(
           children: [
@@ -33,7 +29,7 @@ class SplashScreen extends StatelessWidget {
             Row(
               children: [
                 const Spacer(),
-                Image(image: const AssetImage('assets/logo2.jpg'), width: _getController.width.value * 0.8, height: _getController.height.value * 0.3),
+                Image(image: const AssetImage('assets/logos.png'), width: _getController.width.value * 0.8, height: _getController.height.value * 0.3),
                 const Spacer(),
               ],
             ),

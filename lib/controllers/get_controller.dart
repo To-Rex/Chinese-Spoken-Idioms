@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:chinese_spoken_idioms/pages/info_page.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 import 'package:chinese_spoken_idioms/pages/collection_page.dart';
 import 'package:chinese_spoken_idioms/pages/home_page.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../models/data_model.dart';
+import 'package:document_viewer/document_viewer.dart';
 
 class GetController extends GetxController {
   var bottomBarHeight = 0.0.obs;
@@ -84,7 +86,6 @@ class GetController extends GetxController {
     var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Idoms.json');
     var response = await get(url);
     if (response.statusCode == 200) {
-      getDataReminderFromInternet();
       if (box.read('json').toString().isEmpty||box.read('json').toString() != response.body.toString()){
         saveData(response.body);
       }
@@ -104,32 +105,8 @@ class GetController extends GetxController {
     }
   }
 
-  Future<void> getDataReminderFromInternet() async {
-    GetStorage box = GetStorage();
-    var url = Uri.parse(
-        'https://github.com/To-Rex/Chinese-Spoken-Idioms/blob/master/assets/Eslatma.text'
-    );
-    var response = await get(url);
-    print('response=============: ${response.body}'); // 'response.statusCode: 200'
-    if (response.statusCode == 200) {
-      if (box.read('reminder').toString().isEmpty||box.read('reminder').toString() != response.body.toString()){
-        box.write('reminder', response.body);
-      }
-    } else {
-      Get.snackbar(
-        'Error',
-        'Failed to load data',
-        snackStyle: SnackStyle.FLOATING,
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Theme.of(Get.context!).colorScheme.error,
-        colorText: Theme.of(Get.context!).colorScheme.onError,
-        icon: Icon(Icons.error, color: Theme.of(Get.context!).colorScheme.onError),
-        titleText: Text('Error', style: TextStyle(color: Theme.of(Get.context!).colorScheme.onError)),
-        margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
-        padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
-      );
-    }
-  }
+  //read
+
 
   List<DataModel> searchByCharacter(String search) {
     List<DataModel> result = getData()

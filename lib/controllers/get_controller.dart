@@ -84,6 +84,7 @@ class GetController extends GetxController {
     var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Idoms.json');
     var response = await get(url);
     if (response.statusCode == 200) {
+      getDataReminderFromInternet();
       if (box.read('json').toString().isEmpty||box.read('json').toString() != response.body.toString()){
         saveData(response.body);
       }
@@ -105,8 +106,9 @@ class GetController extends GetxController {
 
   Future<void> getDataReminderFromInternet() async {
     GetStorage box = GetStorage();
-    var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Eslatma.docx');
+    var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Eslatma.text');
     var response = await get(url);
+    print('response=============: ${response.body}'); // 'response.statusCode: 200'
     if (response.statusCode == 200) {
       if (box.read('reminder').toString().isEmpty||box.read('reminder').toString() != response.body.toString()){
         box.write('reminder', response.body);

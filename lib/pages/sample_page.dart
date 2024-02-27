@@ -1,3 +1,4 @@
+import 'package:chinese_spoken_idioms/pages/test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/get_controller.dart';
@@ -129,6 +130,9 @@ class SamplePage extends StatelessWidget {
               title: Text('Info', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 _getController.index.value = 3;
+              },
+              onLongPress: () {
+                Get.to(() => TestPage());
               },
             ),
           ],

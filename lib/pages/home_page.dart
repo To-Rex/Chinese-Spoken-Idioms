@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       body: Obx(() {
         if (_getController.dataModelList.isEmpty) {
           return Center(
-            child: Text('No data',
+            child: Text('Ma\'lumotlar yo\'q',
                 style: TextStyle(fontSize: _getController.width * 0.04)),
           );
         } else {

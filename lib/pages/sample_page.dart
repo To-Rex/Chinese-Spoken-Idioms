@@ -16,13 +16,9 @@ class SamplePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.onSecondary,
-        title: Obx(() => _getController.index.value == 0
-            ? Container(
+        title: Obx(() => _getController.index.value == 0 ? Container(
           padding: EdgeInsets.only(left: _getController.width * 0.03),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background,
-            borderRadius: BorderRadius.circular(10),
-          ),
+          decoration: BoxDecoration(color: Theme.of(context).colorScheme.background, borderRadius: BorderRadius.circular(10)),
           child: TextFormField(
             controller: _getController.searchController,
             keyboardType: TextInputType.text,
@@ -30,20 +26,12 @@ class SamplePage extends StatelessWidget {
               _getController.searchByCharacter(value);
             },
             textInputAction: TextInputAction.search,
-            decoration: InputDecoration(
-              hintText: 'Search',
-              border: InputBorder.none,
-              suffixIcon: Icon(Icons.search,
-                  color: Theme.of(context).colorScheme.primary),
-            ),
-          ),
-        )
+            decoration: InputDecoration(hintText: 'Qidirish', border: InputBorder.none, suffixIcon: Icon(Icons.search, color: Theme.of(context).colorScheme.primary),)))
             : _getController.index.value == 1
-            ? Text('Import Page',
-            style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
+            ? Text('Tuzuvchilar', style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
             : _getController.index.value == 2
-            ?Text('Collection Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
-            : Text('Info Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+            ?Text('Eslatma', style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
+            : Text('Ma\'lumot', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
         )
       ),
       body: Obx(() => _getController.widgetOptions.elementAt(_getController.index.value)),

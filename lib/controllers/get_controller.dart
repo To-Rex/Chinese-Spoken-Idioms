@@ -11,8 +11,9 @@ import 'package:chinese_spoken_idioms/pages/import_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:path_provider/path_provider.dart';
 import '../models/data_model.dart';
-import 'package:document_viewer/document_viewer.dart';
+import 'package:flutter_text_viewer/flutter_text_viewer.dart';
 
 class GetController extends GetxController {
   var bottomBarHeight = 0.0.obs;
@@ -104,8 +105,6 @@ class GetController extends GetxController {
       );
     }
   }
-
-  //read
 
 
   List<DataModel> searchByCharacter(String search) {

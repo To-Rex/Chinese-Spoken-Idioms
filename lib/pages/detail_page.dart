@@ -32,7 +32,7 @@ class _DetailPageState extends State<DetailPage> {
               Navigator.pop(context);
             },
           ),
-          title: Text('Detail Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+          title: Text('To\'liq ma\'lumot', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
           actions: [
             IconButton(
               icon: Icon(

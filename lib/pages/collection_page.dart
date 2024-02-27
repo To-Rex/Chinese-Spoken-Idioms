@@ -14,10 +14,7 @@ class CollectionPage extends StatelessWidget {
     return Scaffold(
       body: Obx(() {
         if (_getController.dataModelList.isEmpty) {
-          return Center(
-            child: Text('No data',
-                style: TextStyle(fontSize: _getController.width * 0.04)),
-          );
+          return Center(child: Text('Ma\'lumotlar yo\'q', style: TextStyle(fontSize: _getController.width * 0.04)),);
         } else {
           //get all collection data from dataModelList
           List collectionList = [];
@@ -29,8 +26,7 @@ class CollectionPage extends StatelessWidget {
           }
           if (collectionList.isEmpty) {
             return Center(
-              child: Text('No collection',
-                  style: TextStyle(fontSize: _getController.width * 0.04)),
+              child: Text('Saqlangan ma\'lumotlar yo\'q', style: TextStyle(fontSize: _getController.width * 0.04)),
             );
           }
           return ListView.builder(

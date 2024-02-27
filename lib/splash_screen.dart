@@ -15,34 +15,43 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     _getController.setHeightWidth(context);
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 30),
       () => Get.off(() => SamplePage()),
     );
     return Scaffold(
-      body: Column(
-        children: [
-          const Spacer(),
-          Row(
-            children: [
-              const Spacer(),
-              Image(image: const AssetImage('assets/logo.png'), width: _getController.width.value * 0.8, height: _getController.height.value * 0.3),
-              const Spacer(),
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage('assets/fon.jpg'),
+            fit: BoxFit.cover,
           ),
-          Text('Chinese Spoken Idioms', style: TextStyle(fontSize: _getController.width.value * 0.04, fontWeight: FontWeight.bold)),
-          const Spacer(),
-          Row(
-            children: [
-              const Spacer(),
-              const CircularProgressIndicator(),
-              SizedBox(width: _getController.width.value * 0.03),
-              Text('Loading...', style: TextStyle(fontSize: _getController.width.value * 0.04, fontWeight: FontWeight.bold)),
-              const Spacer(),
-            ],
-          ),
-          SizedBox(height: _getController.height.value * 0.04),
-        ],
-      ),
+        ),
+        child: Column(
+          children: [
+            /*const Spacer(),
+            Row(
+              children: [
+                const Spacer(),
+                Image(image: const AssetImage('assets/logo.png'), width: _getController.width.value * 0.8, height: _getController.height.value * 0.3),
+                const Spacer(),
+              ],
+            ),
+            Text('Chinese Spoken Idioms', style: TextStyle(fontSize: _getController.width.value * 0.04, fontWeight: FontWeight.bold)),
+            */
+            const Spacer(),
+            Row(
+              children: [
+                const Spacer(),
+                const CircularProgressIndicator(),
+                SizedBox(width: _getController.width.value * 0.03),
+                Text('Loading...', style: TextStyle(fontSize: _getController.width.value * 0.04, fontWeight: FontWeight.bold)),
+                const Spacer(),
+              ],
+            ),
+            SizedBox(height: _getController.height.value * 0.04),
+          ],
+        ),
+      )
     );
   }
 }

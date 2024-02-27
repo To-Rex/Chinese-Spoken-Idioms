@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../controllers/get_controller.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   var id;
   var character;
   var character2;
@@ -22,6 +22,11 @@ class DetailPage extends StatelessWidget {
       required this.reminder,
       required this.examples});
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
   final GetController _getController = Get.put(GetController());
 
   @override
@@ -35,19 +40,15 @@ class DetailPage extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: Text('Detail Page',
-              style:
-                  TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+          title: Text('Detail Page', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
           actions: [
             IconButton(
               icon: Icon(
-                _getController.checkCollection(id)
-                    ? Icons.bookmark
-                    : Icons.bookmark_border,
+                _getController.checkCollection(widget.id) ? Icons.bookmark : Icons.bookmark_border,
                 color: Theme.of(context).colorScheme.error,
               ),
               onPressed: () {
-                _getController.addCollection(id);
+                setState(() {_getController.addCollection(widget.id);});
               },
             ),
           ],
@@ -57,59 +58,40 @@ class DetailPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                  height: _getController.height * 0.05,
-                  width: _getController.width * 1),
-              Text(character,
-                  style: TextStyle(
-                    fontSize: _getController.width * 0.13,
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontWeight: FontWeight.w900,
-                  )),
+              SizedBox(height: _getController.height * 0.05, width: _getController.width * 1),
+              Text(widget.character, style: TextStyle(fontSize: _getController.width * 0.13, color: Theme.of(context).colorScheme.onSurface, fontWeight: FontWeight.w900,)),
               Container(
                 width: _getController.width * 0.3,
                 height: 2,
                 padding: EdgeInsets.only(left: _getController.width * 0.05),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  borderRadius: BorderRadius.circular(10),
-                ),
+                decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(10),),
               ),
               SizedBox(height: _getController.height * 0.02),
-              Text(character2,
-                  style: TextStyle(
-                    fontSize: _getController.width * 0.05,
-                    color: Colors.green,
-                    fontWeight: FontWeight.w900,
-                  )),
-              Text(pinyin,
-                  style: TextStyle(fontSize: _getController.width * 0.05)),
+              Text(widget.character2, style: TextStyle(fontSize: _getController.width * 0.05, color: Colors.green, fontWeight: FontWeight.w900,)),
+              Text(widget.pinyin, style: TextStyle(fontSize: _getController.width * 0.05)),
               SizedBox(height: _getController.height * 0.05),
-              if (comment != null && comment != '')
+              if (widget.comment != null && widget.comment != '')
                 Container(
                   width: _getController.width * 0.9,
                   padding: EdgeInsets.all(_getController.width * 0.03),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.onSecondary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text('Comment: $comment', style: TextStyle(fontSize: _getController.width * 0.045)),
+                  decoration: BoxDecoration(color: Theme.of(context).colorScheme.onSecondary, borderRadius: BorderRadius.circular(10),),
+                  child: Text('Comment: ${widget.comment}', style: TextStyle(fontSize: _getController.width * 0.045)),
                 ),
-              if (reminder != null && reminder != '')
+              if (widget.reminder != null && widget.reminder != '')
                 Container(
                     width: _getController.width * 0.9,
                     margin: EdgeInsets.only(top: _getController.height * 0.03),
                     padding: EdgeInsets.all(_getController.width * 0.03),
                     decoration: BoxDecoration(color: Theme.of(context).colorScheme.onSecondary, borderRadius: BorderRadius.circular(10),),
-                    child: Text('Reminder: $reminder', style: TextStyle(fontSize: _getController.width * 0.045))
+                    child: Text('Reminder: ${widget.reminder}', style: TextStyle(fontSize: _getController.width * 0.045))
                 ),
-              if (examples != null && examples != '')
+              if (widget.examples != null && widget.examples != '')
                 Container(
                     width: _getController.width * 0.9,
                     margin: EdgeInsets.only(top: _getController.height * 0.03, bottom: _getController.height * 0.03),
                     padding: EdgeInsets.all(_getController.width * 0.03),
                     decoration: BoxDecoration(color: Theme.of(context).colorScheme.onSecondary, borderRadius: BorderRadius.circular(10)),
-                    child: Text('Examples: $examples', style: TextStyle(fontSize: _getController.width * 0.045))
+                    child: Text('Examples: ${widget.examples}', style: TextStyle(fontSize: _getController.width * 0.045))
                 ),
             ],
           ),

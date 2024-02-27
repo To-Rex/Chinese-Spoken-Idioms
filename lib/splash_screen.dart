@@ -21,23 +21,23 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: const AssetImage('assets/fon.jpg'),
-            fit: BoxFit.cover,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.blue, Colors.green],
           ),
         ),
         child: Column(
           children: [
-            /*const Spacer(),
+            const Spacer(),
             Row(
               children: [
                 const Spacer(),
-                Image(image: const AssetImage('assets/logo.png'), width: _getController.width.value * 0.8, height: _getController.height.value * 0.3),
+                Image(image: const AssetImage('assets/logo2.jpg'), width: _getController.width.value * 0.8, height: _getController.height.value * 0.3),
                 const Spacer(),
               ],
             ),
             Text('Chinese Spoken Idioms', style: TextStyle(fontSize: _getController.width.value * 0.04, fontWeight: FontWeight.bold)),
-            */
             const Spacer(),
             Row(
               children: [

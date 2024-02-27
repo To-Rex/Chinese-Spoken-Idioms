@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     _getController.setHeightWidth(context);
     Timer(
-      const Duration(seconds: 30),
+      const Duration(seconds: 3),
       () => Get.off(() => SamplePage()),
     );
     return Scaffold(
@@ -33,7 +33,8 @@ class SplashScreen extends StatelessWidget {
                 const Spacer(),
               ],
             ),
-            Text('Chinese Spoken Idioms', style: TextStyle(fontSize: _getController.width.value * 0.04, fontWeight: FontWeight.bold)),
+            SizedBox(height: _getController.height.value * 0.02),
+            Text('Chinese Spoken Idioms', style: TextStyle(fontSize: _getController.width.value * 0.05, fontWeight: FontWeight.bold)),
             const Spacer(),
             Row(
               children: [

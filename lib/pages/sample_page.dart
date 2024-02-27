@@ -47,12 +47,13 @@ class SamplePage extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          height: _getController.height * 0.1,
-                          width: _getController.height * 0.1,
+                          height: _getController.height * 0.09,
+                          width: _getController.height * 0.09,
+                          margin: EdgeInsets.only(left: _getController.width * 0.02),
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: AssetImage('assets/logo.png'),
+                              image: AssetImage('assets/logos.png'),
                               fit: BoxFit.cover,
                             ),
                           ),

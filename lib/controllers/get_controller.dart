@@ -103,6 +103,30 @@ class GetController extends GetxController {
     }
   }
 
+  Future<void> getDataReminderFromInternet() async {
+    GetStorage box = GetStorage();
+    var url = Uri.parse('https://raw.githubusercontent.com/To-Rex/Chinese-Spoken-Idioms/master/assets/Eslatma.docx');
+    var response = await get(url);
+    if (response.statusCode == 200) {
+      if (box.read('reminder').toString().isEmpty||box.read('reminder').toString() != response.body.toString()){
+        box.write('reminder', response.body);
+      }
+    } else {
+      Get.snackbar(
+        'Error',
+        'Failed to load data',
+        snackStyle: SnackStyle.FLOATING,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Theme.of(Get.context!).colorScheme.error,
+        colorText: Theme.of(Get.context!).colorScheme.onError,
+        icon: Icon(Icons.error, color: Theme.of(Get.context!).colorScheme.onError),
+        titleText: Text('Error', style: TextStyle(color: Theme.of(Get.context!).colorScheme.onError)),
+        margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+        padding: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.02),
+      );
+    }
+  }
+
   List<DataModel> searchByCharacter(String search) {
     List<DataModel> result = getData()
         .where((element) =>

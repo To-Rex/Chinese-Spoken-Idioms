@@ -158,7 +158,6 @@ class GetController extends GetxController {
 
   bool checkCollection(int id) {
     GetStorage box = GetStorage();
-    //List<int> collection = box.read('collection') ?? [];
     List<int> collection = List<int>.from(box.read('collection') ?? []);
     return collection.contains(id);
   }

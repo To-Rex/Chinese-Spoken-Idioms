@@ -108,7 +108,9 @@ class GetController extends GetxController {
   List<DataModel> searchByCharacter(String search) {
     List<DataModel> result = getData()
         .where((element) =>
-            element.character!.toLowerCase().contains(search.toLowerCase()) ||
+        search.length == 1
+            ? element.character!.toLowerCase().contains(search.toLowerCase())
+            : element.character!.toLowerCase().contains(search.toLowerCase()) ||
             element.pinyin!.toLowerCase().contains(search.toLowerCase()) ||
             element.character2!.toLowerCase().contains(search.toLowerCase()))
         .toList();

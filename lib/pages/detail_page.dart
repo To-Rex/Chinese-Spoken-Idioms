@@ -67,7 +67,7 @@ class _DetailPageState extends State<DetailPage> {
                   width: _getController.width * 0.9,
                   padding: EdgeInsets.all(_getController.width * 0.03),
                   decoration: BoxDecoration(color: Theme.of(context).colorScheme.onSecondary, borderRadius: BorderRadius.circular(10),),
-                  child: Text('Comment: ${widget.comment}', style: TextStyle(fontSize: _getController.width * 0.045)),
+                  child: Text('Izoh: ${widget.comment}', style: TextStyle(fontSize: _getController.width * 0.045)),
                 ),
               if (widget.reminder != null && widget.reminder != '')
                 Container(
@@ -75,7 +75,7 @@ class _DetailPageState extends State<DetailPage> {
                     margin: EdgeInsets.only(top: _getController.height * 0.03),
                     padding: EdgeInsets.all(_getController.width * 0.03),
                     decoration: BoxDecoration(color: Theme.of(context).colorScheme.onSecondary, borderRadius: BorderRadius.circular(10),),
-                    child: Text('Reminder: ${widget.reminder}', style: TextStyle(fontSize: _getController.width * 0.045))
+                    child: Text('Eslatma: ${widget.reminder}', style: TextStyle(fontSize: _getController.width * 0.045))
                 ),
               if (widget.examples != null && widget.examples != '')
                 Container(
@@ -83,7 +83,7 @@ class _DetailPageState extends State<DetailPage> {
                     margin: EdgeInsets.only(top: _getController.height * 0.03, bottom: _getController.height * 0.03),
                     padding: EdgeInsets.all(_getController.width * 0.03),
                     decoration: BoxDecoration(color: Theme.of(context).colorScheme.onSecondary, borderRadius: BorderRadius.circular(10)),
-                    child: Text('Examples: ${widget.examples}', style: TextStyle(fontSize: _getController.width * 0.045))
+                    child: Text('Misol: ${widget.examples}', style: TextStyle(fontSize: _getController.width * 0.045))
                 ),
             ],
           ),

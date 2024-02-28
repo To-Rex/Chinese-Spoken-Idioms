@@ -30,7 +30,7 @@ class SamplePage extends StatelessWidget {
             : _getController.index.value == 1
             ? Text('Tuzuvchilar', style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
             : _getController.index.value == 2
-            ?Text('Eslatma', style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
+            ? Text('Saqlanganlar', style: TextStyle(color: Theme.of(context).colorScheme.onBackground))
             : Text('Ma\'lumot', style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
         )
       ),
@@ -105,7 +105,7 @@ class SamplePage extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(Icons.bookmark, color: Theme.of(context).colorScheme.onBackground),
-              title: Text('Eslatma', style: TextStyle(fontSize: _getController.width * 0.04)),
+              title: Text('Saqlanganlar', style: TextStyle(fontSize: _getController.width * 0.04)),
               onTap: () {
                 _getController.index.value = 2;
               },
